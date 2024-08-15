@@ -7,7 +7,7 @@
   "author": "Shaikh Javed & Saniya Shaikh",
   "license": "ISC",
   "description": "React parcel App with typescript and Redux",
-  "homepage": "https://https://shaikhjavedofficial.github.io/main",
+  "homepage": "https://shaikhjavedofficial.github.io/main",
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
