@@ -9,7 +9,7 @@ import '@fontsource/roboto/400.css';
 import { SnackbarProvider } from 'notistack';
 import SnackbarCloseButton from './Utils/enqueNotistack/SnackbarCloseButton';
 import 'remixicon/fonts/remixicon.css'
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from "react-router-dom";
 
 
 const container = document.getElementById('root')!;
@@ -19,9 +19,9 @@ root.render(
   <React.StrictMode>
     <SnackbarProvider maxSnack={3} action={(snackbarKey:any) => <SnackbarCloseButton snackbarKey={snackbarKey} />}>
       <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <App />
-      </BrowserRouter>
+      </Router>
       </Provider>
     </SnackbarProvider>
   </React.StrictMode>
@@ -33,9 +33,9 @@ if (module.hot) {
         <React.StrictMode>
           <SnackbarProvider maxSnack={3} action={(snackbarKey:any) => <SnackbarCloseButton snackbarKey={snackbarKey} />}>
             <Provider store={store}>
-              <BrowserRouter>
+              <Router>
                 <NextApp />
-              </BrowserRouter>
+              </Router>
             </Provider>
           </SnackbarProvider>
         </React.StrictMode>
