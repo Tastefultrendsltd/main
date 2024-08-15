@@ -43,7 +43,6 @@
     "bundle": "mkdir build && cp public/robots.txt build/",
     "test": "jest --clearMocks --no-cache --watchAll --coverage",
     "predeploy": "npm run build",
-    "prebuild": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
