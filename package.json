@@ -39,7 +39,7 @@
   },
   "scripts": {
     "start": "npm run clear && parcel public/index.html --dist-dir build --open chrome --port 3000",
-    "build": "npm run clean && npm run clear && parcel build public/index.html --dist-dir build",
+    "build": "npm run clear && parcel build public/index.html --dist-dir build",
     "clear": "rm -rf build .parcel-cache && npm run bundle",
     "bundle": "mkdir build && cp public/robots.txt build/",
     "test": "jest --clearMocks --no-cache --watchAll --coverage",
