@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import App from './App';
 import './index.css';
-import '@fontsource/roboto/400.css';
 import { SnackbarProvider } from 'notistack';
 import SnackbarCloseButton from './Utils/enqueNotistack/SnackbarCloseButton';
 import 'remixicon/fonts/remixicon.css'
 import { HashRouter as Router } from "react-router-dom";
+import Navbar from './Components/Navbar/Navbar';
 
 
 const container = document.getElementById('root')!;
@@ -19,6 +19,7 @@ root.render(
     <SnackbarProvider maxSnack={3} action={(snackbarKey:any) => <SnackbarCloseButton snackbarKey={snackbarKey} />}>
       <Provider store={store}>
       <Router>
+        <Navbar />
         <App />
       </Router>
       </Provider>
@@ -33,6 +34,7 @@ if (module.hot) {
           <SnackbarProvider maxSnack={3} action={(snackbarKey:any) => <SnackbarCloseButton snackbarKey={snackbarKey} />}>
             <Provider store={store}>
               <Router>
+              <Navbar />
                 <NextApp />
               </Router>
             </Provider>

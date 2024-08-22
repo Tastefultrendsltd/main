@@ -1,0 +1,7 @@
+a {
+    text-decoration: none;
+    color: #01183b;
+}
+a:hover, a.active{
+color: #40A6DD;
+}
