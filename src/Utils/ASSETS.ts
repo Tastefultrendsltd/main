@@ -8,4 +8,5 @@
 //     }
 // ]
 
-export const MYIMG = new URL("~/public/assets/my_img.jpg", import.meta.url).href
+export const MYIMG = new URL("~/public/assets/my_img.png", import.meta.url).href
+export const EXP = new URL("~/public/assets/exp.jpg", import.meta.url).href

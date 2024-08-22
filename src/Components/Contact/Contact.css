@@ -1,0 +1,14 @@
+.mainBody{
+    background: #01183b;
+    padding: 1.5rem 1rem 2rem 1rem;
+}
+.icons{
+i{
+    color: white;
+}
+}
+.links{
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #60ACE6 !important;
+}
