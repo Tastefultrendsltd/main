@@ -17,7 +17,7 @@ class Home extends Component<IHomeProps> {
     return (
       <Stack
         gap="1rem"
-        p="1rem"
+                p="1.5rem 1rem 1rem 1rem"
         alignItems='center'
         sx={{
           flexDirection: { sm: "row", xs: "column" },
@@ -34,13 +34,10 @@ class Home extends Component<IHomeProps> {
           flexDirection="column"
           sx={{ width: { md: "48vw", xs: "94vw" } }}
         >
-          <Typography variant="h3" color='white'>Hi, I am Shaikh Javed</Typography>
-          <Typography variant="h5" color='cyan'>Full Stack Developer</Typography>
-          <Typography variant="body1" color='white'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut
-            expedita assumenda cumque, architecto, officiis repellendus
-            voluptates harum sint temporibus illo, tempore voluptatibus aliquid.
-            Maxime aliquam voluptate nemo, rerum recusandae iste.
+          <Typography variant="h3" color='#01183b'>Hi, I am Shaikh Javed!</Typography>
+          <Typography variant="h5" color='#40A6DD'>Full Stack Developer</Typography>
+          <Typography variant="body1" color='#01183b'>
+          Currently, I’m a front-end developer at Axis Securities Ltd. I graduated with a Bachelor of Engineering in Mechanical Engineering. I have 3+ years of experience in TypeScript, JavaScript, CSS, and HTML, specializing in ReactJS and Redux. I excel in creating web-based applications and have a strong grasp of REST APIs, Agile methodologies, and software development principles. On my website, you will find my work experience, favorite projects, and skillsets. Please reach out to me via LinkedIn if you want to chat!
           </Typography>
           <Stack flexDirection="row" gap="1rem" sx={{p:"1rem 0rem 0rem 0rem"}}>
             <Button
@@ -54,7 +51,7 @@ class Home extends Component<IHomeProps> {
               onClick={(e) => this.handleClick(e, "contact")}
               variant='outlined'
               fullWidth>
-              Contact Me!
+              Hire Me!
             </Button>
           </Stack>
         </Stack>

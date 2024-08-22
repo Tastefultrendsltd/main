@@ -1,7 +1,7 @@
 a {
     text-decoration: none;
-    color: white;
+    color: #01183b;
 }
 a:hover, a.active{
-color: dodgerblue;
+color: #40A6DD;
 }

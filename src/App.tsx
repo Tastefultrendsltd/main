@@ -5,6 +5,7 @@ import NotFound from './Components/NotFound';
 import Experience from './Components/Experience/Experience';
 import Projects from './Components/Projects/Projects';
 import Contact from './Components/Contact/Contact';
+import Skills from './Components/Skills/Skills';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       <Route path="/" element={<Home />} />
       <Route path="/experience" element={<Experience />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/skills" element={<Skills />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

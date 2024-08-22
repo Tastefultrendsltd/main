@@ -32,29 +32,36 @@ class Navbar extends Component<INavbarProps, INavbarState> {
       <Stack
         flexDirection="row"
         justifyContent="space-between"
-        height="10vh"
+        height="3rem"
         top="0"
         position="sticky"
         p="0 1rem 0 1rem"
+        sx={{
+          background: "white",
+          boxShadow: "0px 2px 12px #01183b",
+          zIndex: 5,
+        }}
       >
         <Typography
           sx={{
-            color: "white",
+            color: "#01183b",
             fontSize: "1.5rem",
             fontWeight: "600",
             fontFamily: "monospace",
-            pt:{sm:"0rem",xs:"0.5rem"}
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
           }}
         >
           Shaikh Javed
         </Typography>
         <Stack
           flexDirection="row"
-          gap="1rem"
-          p="0 1rem 0 1rem"
+          gap="1.1rem"
+          p="0.5rem 1rem 0 0rem"
           sx={{
             color: "white",
-            fontSize: "1.2rem",
+            fontSize: "1rem",
             fontWeight: "500",
             fontFamily: "monospace",
             transition: "3s",
@@ -66,6 +73,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
           </NavLink>
           <NavLink to="/experience">Experience</NavLink>
           <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/projects">Skills</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </Stack>
         <IconButton
@@ -76,10 +84,10 @@ class Navbar extends Component<INavbarProps, INavbarState> {
           aria-haspopup="true"
           onClick={this.handleMenu}
           sx={{
-            display:{sm:"none", xs:"inherit"}
+            display: { sm: "none", xs: "inherit" },
           }}
         >
-          <i className="ri-menu-line" style={{ color: "white" }} />
+          <i className="ri-menu-line" style={{ color: "#01183b" }} />
         </IconButton>
         <Menu
           id="menu"
@@ -90,7 +98,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             "aria-labelledby": "basic-button",
           }}
           sx={{
-            display:{sm:"none", xs:"inherit"}
+            display: { sm: "none", xs: "inherit" },
           }}
         >
           <MenuItem onClick={(e) => this.handleNav(e, "/")}>Home</MenuItem>
@@ -99,6 +107,9 @@ class Navbar extends Component<INavbarProps, INavbarState> {
           </MenuItem>
           <MenuItem onClick={(e) => this.handleNav(e, "/projects")}>
             Projects
+          </MenuItem>
+          <MenuItem onClick={(e) => this.handleNav(e, "/skills")}>
+            Skills
           </MenuItem>
           <MenuItem onClick={(e) => this.handleNav(e, "/contact")}>
             Contact
