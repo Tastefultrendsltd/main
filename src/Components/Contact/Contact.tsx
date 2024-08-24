@@ -10,8 +10,20 @@ class Contact extends Component<IContactProps> {
   render() {
     const { xs, md } = this.props;
     return (
-      <Box className="mainBody" height={xs ? "auto" : "100vh"}>
-        <Stack alignItems="center" flexDirection="column" gap="3rem" pb="2rem">
+      <Box
+        className="mainBody"
+        bottom="0"
+        top="0"
+        width="100%"
+        position="fixed"
+      >
+        <Stack
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+          gap="3rem"
+          p="4.5rem 0rem 2rem 0rem"
+        >
           <Stack alignItems="center">
             <Typography variant="h5" color="#60ACE6">
               CONTACT
@@ -73,15 +85,6 @@ class Contact extends Component<IContactProps> {
               </a>
             </Box>
           </Stack>
-          <Typography
-            color="#60ACE6"
-            variant="body1"
-            bottom="1rem"
-            position="fixed"
-            left="3rem"
-          >
-            &#169; Copyright Shaikh Javed 2024.
-          </Typography>
         </Stack>
       </Box>
     );

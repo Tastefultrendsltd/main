@@ -1,6 +1,7 @@
 .mainBody{
     background: #01183b;
-    padding: 1.5rem 1rem 2rem 1rem;
+    overflow-y: scroll;
+    padding: 0rem 0.5rem 1rem 0.5rem;
 }
 .icons{
 i{

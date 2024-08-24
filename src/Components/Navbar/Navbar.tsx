@@ -73,7 +73,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
           </NavLink>
           <NavLink to="/experience">Experience</NavLink>
           <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/projects">Skills</NavLink>
+          <NavLink to="/skills">Skills</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </Stack>
         <IconButton
