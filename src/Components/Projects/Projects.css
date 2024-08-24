@@ -1,0 +1,23 @@
+.projectBg{
+    background-image: url("~/public/assets/projects.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.projectOverlay {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.investBtn{
+    i{
+    padding-left: 0.5rem;
+    color: white !important;
+    };
+}
+
+.skillsBtn{
+    i{
+        color: white;
+    }
+}

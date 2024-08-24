@@ -1,0 +1,16 @@
+.skillBg {
+    background-image: url("~/public/assets/skills.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.skillsOverlay{
+    background-color: rgba(0, 16, 38, 0.9);
+}
+.skillLine{
+    height: 100%;
+    width: 0.1rem;
+    background: white;
+    padding-bottom: 2rem;
+}

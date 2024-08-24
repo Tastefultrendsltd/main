@@ -4,3 +4,10 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.experiennceBtn{
+  i{
+  padding-left: 0.5rem;
+  color: white !important;
+  };
+}

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Portfolio",
+  "name": "Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
@@ -16,6 +16,17 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/ach1.jpg",
+        "assets/ach2.jpg",
+        "assets/ach3.jpg",
+        "assets/ach4.jpg"
+      ],
+      "matches": ["<all_urls>"]
     }
   ],
   "start_url": ".",
