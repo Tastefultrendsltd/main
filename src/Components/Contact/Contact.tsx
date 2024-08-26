@@ -80,6 +80,7 @@ class Contact extends Component<IContactProps> {
               <a
                 className="links"
                 href="https://www.linkedin.com/in/shaikh-javed/"
+                target="_blank"
               >
                 linkedin
               </a>
