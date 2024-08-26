@@ -13,6 +13,7 @@
 
 ul{
     padding-left: 1rem;
+    text-align: justify;
 }
 li::marker{
     color: #60ACE6;
