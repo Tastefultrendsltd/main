@@ -1,8 +1,9 @@
 .line{
     height: 100%;
-    width: 0.2rem;
+    width: 0.3rem;
     background: grey;
     padding-bottom: 2rem;
+    border-radius: 5px;
 }
 .horizontalLine{
     height: 0.2rem;
@@ -34,12 +35,6 @@ i{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.achievementBg {
-    background-image: url("~/public/assets/my_img.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 .projectBtn{
     i{
         color: white;

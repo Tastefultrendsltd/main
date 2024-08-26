@@ -8,13 +8,6 @@
 .skillsOverlay{
     background-color: rgba(0, 16, 38, 0.9);
 }
-.skillLine{
-    width: 0.2rem;
-    border-radius: 0.2rem;
-    background: white;
-    height: 18vh;
-    margin: 0rem 1rem 0rem 1rem;
-}
 .skillIcon{
     i{
         color: white;

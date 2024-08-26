@@ -4,9 +4,13 @@ import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
 import withBreakpoint, {
   BreakpointProps,
 } from "~/src/Utils/withBreakpoint/withBreakpoint";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 interface ISkillsProps extends WithRouterProps, BreakpointProps {}
 class Skills extends Component<ISkillsProps> {
+  handleClick = (e: React.MouseEvent<HTMLButtonElement>, type: string) => {
+    const { navigate } = this.props;
+    navigate(type);
+  };
   render() {
     const { xs, lg, sm, md } = this.props;
     return (
@@ -146,6 +150,15 @@ class Skills extends Component<ISkillsProps> {
               </Typography>
             </Stack>
           </Box>
+          <Button
+            onClick={(e) => this.handleClick(e, "/contact")}
+            variant="outlined"
+            sx={{
+              width: xs ? "100%" : "14rem",
+            }}
+          >
+            Hire Me!
+          </Button>
         </Stack>
       </Box>
     );
