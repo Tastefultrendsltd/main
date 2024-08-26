@@ -9,8 +9,29 @@
     background-color: rgba(0, 16, 38, 0.9);
 }
 .skillLine{
-    height: 100%;
-    width: 0.1rem;
+    width: 0.2rem;
+    border-radius: 0.2rem;
     background: white;
-    padding-bottom: 2rem;
+    height: 18vh;
+    margin: 0rem 1rem 0rem 1rem;
+}
+.skillIcon{
+    i{
+        color: white;
+    }   
+}
+.skillIconBox{
+    text-align: center;
+    flex: 1 1 -1%;
+    padding: 1rem;
+}
+@media (max-width: 992px) {
+    .skillIconBox{
+        flex: 1 1 26%;
+    }   
+}
+@media (max-width: 400px) {
+    .skillIconBox{
+        flex: 1 1 100%;
+    }   
 }
