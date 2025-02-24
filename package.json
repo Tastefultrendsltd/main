@@ -1,13 +1,13 @@
 {
-  "name": "Portfolio",
+  "name": "main",
   "version": "1.0.0",
   "private": true,
   "source": "public/index.html",
   "keywords": [],
   "author": "Shaikh Javed",
   "license": "ISC",
-  "description": "Portfolio website",
-  "homepage": "https://shaikhjavedofficial.github.io/portfolio",
+  "description": "website",
+  "homepage": "https://Tastefultrendsltd.github.io/main",
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
