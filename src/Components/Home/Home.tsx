@@ -3,7 +3,10 @@ import React, { Component } from "react";
 import { Typography, Box, Stack, Button } from "@mui/material";
 import "./Home.css";
 import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
-interface IHomeProps extends WithRouterProps {}
+import withBreakpoint, {
+  BreakpointProps,
+} from "~/src/Utils/withBreakpoint/withBreakpoint";
+interface IHomeProps extends WithRouterProps, BreakpointProps {}
 
 class Home extends Component<IHomeProps> {
   componentDidMount(): void {
@@ -13,7 +16,19 @@ class Home extends Component<IHomeProps> {
     const { navigate } = this.props;
     navigate(type);
   };
+  handleSocial = (type: string) => {
+    if (type == "leetcode") {
+      window.open("https://leetcode.com/skjaved");
+    }
+    if (type == "hacker") {
+      window.open("https://www.hackerrank.com/skjaved633");
+    }
+    if (type == "github") {
+      window.open("https://github.com/shaikhjavedofficial");
+    }
+  };
   render() {
+    const { xs, md, sm } = this.props;
     return (
       <Stack
         gap="1rem"
@@ -21,13 +36,13 @@ class Home extends Component<IHomeProps> {
         alignItems="center"
         justifyContent="center"
         sx={{
-          flexDirection: { sm: "row", xs: "column" },
+          flexDirection: { md: "row", xs: "column" },
         }}
       >
         <Box
           className="home"
           sx={{
-            height: { md: "35vw", xs: "60vw" },
+            height: { md: "35vw", xs: "75vw" },
             width: { md: "48vw", xs: "90vw" },
           }}
         ></Box>
@@ -72,9 +87,39 @@ class Home extends Component<IHomeProps> {
               Hire Me!
             </Button>
           </Stack>
+          <Typography variant="h5" pt="2rem" color="#01183b" fontWeight="700">
+            Links
+          </Typography>
+          <Typography variant="body1" pt="1rem">
+            checkout my profile on coding platforms and have a look at my
+            contributions
+          </Typography>
+          <Stack flexDirection={xs ? "column" : "row"} pt="1rem" gap="1rem">
+            <Button
+              onClick={() => this.handleSocial("leetcode")}
+              variant="outlined"
+              fullWidth
+            >
+              LeetCode
+            </Button>
+            <Button
+              onClick={() => this.handleSocial("hacker")}
+              variant="outlined"
+              fullWidth
+            >
+              HackerRank
+            </Button>
+            <Button
+              onClick={() => this.handleSocial("github")}
+              variant="outlined"
+              fullWidth
+            >
+              GitHub
+            </Button>
+          </Stack>
         </Stack>
       </Stack>
     );
   }
 }
-export default withRouter(Home);
+export default withBreakpoint(withRouter(Home));

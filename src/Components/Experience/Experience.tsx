@@ -256,7 +256,9 @@ class Experience extends Component<IExperienceProps> {
               width={xs ? "100%" : "30vw"}
               height="14rem"
             />
-            {!xs && <Box className="line" height="12rem"></Box>}
+            {!xs && (
+              <Box className="line" mt="2rem" height="8rem !important"></Box>
+            )}
             <Stack width={xs ? "100%" : "55vw"}>
               {!xs && <Typography variant="h5">Bankathon 2.0</Typography>}
               <Typography variant="body1">

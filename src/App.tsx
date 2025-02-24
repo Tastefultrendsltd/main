@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound";
 import Contact from "./Components/Contact/Contact";
 import ScrollToTop from "./Utils/scrollToTop";
@@ -10,11 +9,19 @@ const App: React.FC = () => {
   const Experience = lazy(() => import("./Components/Experience/Experience"));
   const Projects = lazy(() => import("./Components/Projects/Projects"));
   const Skills = lazy(() => import("./Components/Skills/Skills"));
+  const Home = lazy(() => import("./Components/Home/Home"));
   return (
     <>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Home />
+            </Suspense>
+          }
+        />
         <Route
           path="/experience"
           element={
