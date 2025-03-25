@@ -1,8 +1,8 @@
 import React from "react";
 import withBreakpoint from "~/src/Utils/withBreakpoint/withBreakpoint";
 
-const Contact = () => {
-  return <div>Contact</div>;
+const Events = () => {
+  return <div>Events</div>;
 };
 
-export default withBreakpoint(Contact);
+export default withBreakpoint(Events);
