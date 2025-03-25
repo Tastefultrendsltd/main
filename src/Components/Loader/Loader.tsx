@@ -11,7 +11,7 @@ export default class Loader extends Component {
         justifyContent="center"
         height="85vh"
       >
-        <ScaleLoader color="#40A6DD" radius={100} speedMultiplier={3} />
+        <ScaleLoader color="#BF3131" radius={100} speedMultiplier={3} />
       </Box>
     );
   }

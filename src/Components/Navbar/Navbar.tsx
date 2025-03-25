@@ -1,8 +1,8 @@
 import { IconButton, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
+import { Link } from "react-scroll";
 interface INavbarProps extends WithRouterProps {}
 interface INavbarState {
   anchorEl: null | HTMLElement;
@@ -20,7 +20,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-  handleNav = (e: React.MouseEvent<HTMLButtonElement>, path: string) => {
+  handleNav = (e: React.MouseEvent<HTMLLIElement>, path: string) => {
     this.handleClose();
     const { navigate } = this.props;
     navigate(path);
@@ -37,14 +37,14 @@ class Navbar extends Component<INavbarProps, INavbarState> {
         position="sticky"
         p="0 1rem 0 1rem"
         sx={{
-          background: "white",
-          boxShadow: "0px 2px 12px #01183b",
+          background: "#7D0A0A",
+          boxShadow: "0px 2px 12px #7D0A0A",
           zIndex: 5,
         }}
       >
         <Typography
           sx={{
-            color: "#01183b",
+            color: "#ffffff",
             fontSize: "1.5rem",
             fontWeight: "600",
             fontFamily: "monospace",
@@ -53,7 +53,9 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             textOverflow: "ellipsis",
           }}
         >
-          Shaikh Javed
+          <Link to="home" smooth={true} duration={500}>
+            TasteFul Trends
+          </Link>
         </Typography>
         <Stack
           flexDirection="row"
@@ -68,13 +70,15 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "inherit", xs: "none" },
           }}
         >
-          <NavLink to="/" exact>
-            Home
-          </NavLink>
-          <NavLink to="/experience">Experience</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/skills">Skills</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <Link to="Events" smooth={true} duration={500}>
+            Events
+          </Link>
+          <Link to="ContactUs" smooth={true} duration={500}>
+            Contact Us
+          </Link>
+          <Link to="AboutUs" smooth={true} duration={500}>
+            About Us
+          </Link>
         </Stack>
         <IconButton
           aria-label="more"
@@ -87,7 +91,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "none", xs: "inherit" },
           }}
         >
-          <i className="ri-menu-line" style={{ color: "#01183b" }} />
+          <i className="ri-menu-line" style={{ color: "#7D0A0A" }} />
         </IconButton>
         <Menu
           id="menu"
@@ -101,18 +105,20 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "none", xs: "inherit" },
           }}
         >
-          <MenuItem onClick={(e) => this.handleNav(e, "/")}>Home</MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/experience")}>
-            Experience
+          <MenuItem>
+            <Link to="Events" smooth={true} duration={500}>
+              Events
+            </Link>
           </MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/projects")}>
-            Projects
+          <MenuItem>
+            <Link to="ContactUs" smooth={true} duration={500}>
+              Contact Us
+            </Link>
           </MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/skills")}>
-            Skills
-          </MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/contact")}>
-            Contact
+          <MenuItem>
+            <Link to="AboutUs" smooth={true} duration={500}>
+              About Us
+            </Link>
           </MenuItem>
         </Menu>
       </Stack>
