@@ -6,7 +6,7 @@ import withBreakpoint, {
 import "./Experience.css";
 import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
 import CustomCarousel from "../CustomCarousel/CustomCarousel";
-import { ACH1, ACH2, ACH3, ACH4 } from "~/src/Utils/ASSETS";
+// import { ACH1, ACH2, ACH3, ACH4 } from "~/src/Utils/ASSETS";
 
 interface IExperienceProps extends WithRouterProps, BreakpointProps {}
 class Experience extends Component<IExperienceProps> {
@@ -16,7 +16,7 @@ class Experience extends Component<IExperienceProps> {
   };
   render() {
     const { sm, md, xs } = this.props;
-    const data = [ACH1, ACH2, ACH3, ACH4];
+    // const data = [ACH1, ACH2, ACH3, ACH4];
     return (
       <Box className="expBackground">
         <Box
@@ -251,11 +251,11 @@ class Experience extends Component<IExperienceProps> {
             gap="3vw"
           >
             {xs && <Typography variant="h5">Bankathon 2.0</Typography>}
-            <CustomCarousel
+            {/* <CustomCarousel
               items={data}
               width={xs ? "100%" : "30vw"}
               height="14rem"
-            />
+            /> */}
             {!xs && (
               <Box className="line" mt="2rem" height="8rem !important"></Box>
             )}
