@@ -1,9 +1,18 @@
-import { IconButton, Menu, MenuItem, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import "./Navbar.css";
+import { connect, ConnectedProps } from "react-redux";
+import { Link } from "react-scroll";
+import { setTheme, T_THEME } from "~/src/redux/AppSlice";
 import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
-interface INavbarProps extends WithRouterProps {}
+import "./Navbar.css";
+interface INavbarProps extends WithRouterProps, PropFromRedux {}
 interface INavbarState {
   anchorEl: null | HTMLElement;
 }
@@ -14,20 +23,28 @@ class Navbar extends Component<INavbarProps, INavbarState> {
       anchorEl: null,
     };
   }
+
+  toggleTheme = () => {
+    const { setTheme, theme } = this.props;
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
   handleMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     this.setState({ anchorEl: event.currentTarget });
   };
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-  handleNav = (e: React.MouseEvent<HTMLButtonElement>, path: string) => {
+  handleNav = (e: React.MouseEvent<HTMLLIElement>, path: string) => {
     this.handleClose();
     const { navigate } = this.props;
     navigate(path);
   };
+
   render() {
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
+    const { theme } = this.props;
     return (
       <Stack
         flexDirection="row"
@@ -37,14 +54,14 @@ class Navbar extends Component<INavbarProps, INavbarState> {
         position="sticky"
         p="0 1rem 0 1rem"
         sx={{
-          background: "white",
-          boxShadow: "0px 2px 12px #01183b",
+          background: "#7D0A0A",
+          boxShadow: "0px 2px 12px #7D0A0A",
           zIndex: 5,
         }}
       >
         <Typography
           sx={{
-            color: "#01183b",
+            color: "#ffffff",
             fontSize: "1.5rem",
             fontWeight: "600",
             fontFamily: "monospace",
@@ -53,7 +70,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             textOverflow: "ellipsis",
           }}
         >
-          Shaikh Javed
+          TasteFul Trends
         </Typography>
         <Stack
           flexDirection="row"
@@ -66,15 +83,30 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             fontFamily: "monospace",
             transition: "3s",
             display: { sm: "inherit", xs: "none" },
+            "&.a": {
+              textDecoration: "none",
+              color: theme === "light" ? "#fff" : "#000",
+            },
           }}
         >
-          <NavLink to="/" exact>
+          <Link to="Home" smooth={true} duration={500}>
             Home
-          </NavLink>
-          <NavLink to="/experience">Experience</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/skills">Skills</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          </Link>
+          <Link to="Events" smooth={true} duration={500}>
+            Events
+          </Link>
+          <Link to="ContactUs" smooth={true} duration={500}>
+            Contact Us
+          </Link>
+          <Link to="AboutUs" smooth={true} duration={500}>
+            About Us
+          </Link>
+          <Box
+            className="ri-contrast-2-line"
+            onClick={this.toggleTheme}
+            fontSize={"1.3rem"}
+            sx={{ cursor: "pointer" }}
+          />
         </Stack>
         <IconButton
           aria-label="more"
@@ -87,7 +119,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "none", xs: "inherit" },
           }}
         >
-          <i className="ri-menu-line" style={{ color: "#01183b" }} />
+          <i className="ri-menu-line" style={{ color: "white" }} />
         </IconButton>
         <Menu
           id="menu"
@@ -101,22 +133,52 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "none", xs: "inherit" },
           }}
         >
-          <MenuItem onClick={(e) => this.handleNav(e, "/")}>Home</MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/experience")}>
-            Experience
+          <MenuItem color="red">
+            <Link to="Home" smooth={true} duration={500}>
+              <Typography>Home</Typography>
+            </Link>
           </MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/projects")}>
-            Projects
+          <MenuItem>
+            <Link to="Events" smooth={true} duration={500}>
+              Events
+            </Link>
           </MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/skills")}>
-            Skills
+          <MenuItem>
+            <Link to="ContactUs" smooth={true} duration={500}>
+              Contact Us
+            </Link>
           </MenuItem>
-          <MenuItem onClick={(e) => this.handleNav(e, "/contact")}>
-            Contact
+          <MenuItem>
+            <Link to="AboutUs" smooth={true} duration={500}>
+              About Us
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={this.toggleTheme}>
+            <Box
+              className="ri-contrast-2-line"
+              fontSize={"1.3rem"}
+              sx={{ cursor: "pointer" }}
+            />
+            <Typography ml="0.5rem">
+              {theme === "light" ? "dark" : "light"}
+            </Typography>
           </MenuItem>
         </Menu>
       </Stack>
     );
   }
 }
-export default withRouter(Navbar);
+
+const mapStateToProps = (state: any) => {
+  return {
+    theme: state.AppState.theme,
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setTheme: (theme: T_THEME) => dispatch(setTheme(theme)),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type PropFromRedux = ConnectedProps<typeof connector>;
+export default connector(withRouter(Navbar));

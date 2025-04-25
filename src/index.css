@@ -5,7 +5,8 @@ body {
     sans-serif,'serif' ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    /* background:#01183b; */
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 code {
@@ -14,28 +15,28 @@ code {
 }
 
 .notistack-MuiContent-default{
-  background-color: #ffffff !important;
-  color:black !important;
+  background-color: #7D0A0A !important;
+  color:white !important;
 }
 
 .notistack-MuiContent-success {
 .customButton {
-  color: white !important;
+  color: #BF3131 !important;
 }
 }
 .notistack-MuiContent-error {
 .customButton {
-  color: white !important;
+  color: #BF3131 !important;
 }
 }
 .notistack-MuiContent-warning {
 .customButton {
-  color: white !important;
+  color: #BF3131 !important;
 }
 }
 .notistack-MuiContent-info {
 .customButton {
-  color: white !important;
+  color: #BF3131 !important;
 }
 }
 a {
