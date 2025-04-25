@@ -1,9 +1,18 @@
-import { IconButton, Menu, MenuItem, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React, { Component } from "react";
-import "./Navbar.css";
-import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
+import { connect, ConnectedProps } from "react-redux";
 import { Link } from "react-scroll";
-interface INavbarProps extends WithRouterProps {}
+import { setTheme, T_THEME } from "~/src/redux/AppSlice";
+import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
+import "./Navbar.css";
+interface INavbarProps extends WithRouterProps, PropFromRedux {}
 interface INavbarState {
   anchorEl: null | HTMLElement;
 }
@@ -14,6 +23,12 @@ class Navbar extends Component<INavbarProps, INavbarState> {
       anchorEl: null,
     };
   }
+
+  toggleTheme = () => {
+    const { setTheme, theme } = this.props;
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
   handleMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     this.setState({ anchorEl: event.currentTarget });
   };
@@ -25,9 +40,11 @@ class Navbar extends Component<INavbarProps, INavbarState> {
     const { navigate } = this.props;
     navigate(path);
   };
+
   render() {
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
+    const { theme } = this.props;
     return (
       <Stack
         flexDirection="row"
@@ -53,9 +70,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             textOverflow: "ellipsis",
           }}
         >
-          <Link to="home" smooth={true} duration={500}>
-            TasteFul Trends
-          </Link>
+          TasteFul Trends
         </Typography>
         <Stack
           flexDirection="row"
@@ -68,8 +83,15 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             fontFamily: "monospace",
             transition: "3s",
             display: { sm: "inherit", xs: "none" },
+            "&.a": {
+              textDecoration: "none",
+              color: theme === "light" ? "#fff" : "#000",
+            },
           }}
         >
+          <Link to="Home" smooth={true} duration={500}>
+            Home
+          </Link>
           <Link to="Events" smooth={true} duration={500}>
             Events
           </Link>
@@ -79,6 +101,12 @@ class Navbar extends Component<INavbarProps, INavbarState> {
           <Link to="AboutUs" smooth={true} duration={500}>
             About Us
           </Link>
+          <Box
+            className="ri-contrast-2-line"
+            onClick={this.toggleTheme}
+            fontSize={"1.3rem"}
+            sx={{ cursor: "pointer" }}
+          />
         </Stack>
         <IconButton
           aria-label="more"
@@ -91,7 +119,7 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "none", xs: "inherit" },
           }}
         >
-          <i className="ri-menu-line" style={{ color: "#7D0A0A" }} />
+          <i className="ri-menu-line" style={{ color: "white" }} />
         </IconButton>
         <Menu
           id="menu"
@@ -105,6 +133,11 @@ class Navbar extends Component<INavbarProps, INavbarState> {
             display: { sm: "none", xs: "inherit" },
           }}
         >
+          <MenuItem color="red">
+            <Link to="Home" smooth={true} duration={500}>
+              <Typography>Home</Typography>
+            </Link>
+          </MenuItem>
           <MenuItem>
             <Link to="Events" smooth={true} duration={500}>
               Events
@@ -120,9 +153,32 @@ class Navbar extends Component<INavbarProps, INavbarState> {
               About Us
             </Link>
           </MenuItem>
+          <MenuItem onClick={this.toggleTheme}>
+            <Box
+              className="ri-contrast-2-line"
+              fontSize={"1.3rem"}
+              sx={{ cursor: "pointer" }}
+            />
+            <Typography ml="0.5rem">
+              {theme === "light" ? "dark" : "light"}
+            </Typography>
+          </MenuItem>
         </Menu>
       </Stack>
     );
   }
 }
-export default withRouter(Navbar);
+
+const mapStateToProps = (state: any) => {
+  return {
+    theme: state.AppState.theme,
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setTheme: (theme: T_THEME) => dispatch(setTheme(theme)),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type PropFromRedux = ConnectedProps<typeof connector>;
+export default connector(withRouter(Navbar));

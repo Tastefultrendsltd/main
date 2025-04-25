@@ -1,38 +1,32 @@
-import React, { Component } from "react";
+import { Paper } from "@mui/material";
+import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Box } from "@mui/material";
-import { inherits } from "util";
+
 interface ICustomCarouselProps {
-  items: any[];
-  height?: string;
-  width?: string;
+  items: { src: string; alt: string }[];
 }
 
-class CustomCarousel extends Component<ICustomCarouselProps> {
-  render() {
-    const { items, height = "40vh", width = "40vw" } = this.props;
-    return (
-      <Carousel
-        animation="slide"
-        sx={{
-          width: width,
-          height: "16rem",
-        }}
-      >
-        {items.map((item, i) => (
+const CustomCarousel: React.FC<ICustomCarouselProps> = ({ items }) => {
+  return (
+    <Carousel
+      animation="slide"
+      sx={{ width: "100%", height: "60vh", marginBottom: "1rem" }}
+    >
+      {items.map((item, index) => (
+        <Paper key={index}>
           <img
             src={item.src}
             alt={item.alt}
             style={{
               objectFit: "fill",
-              width: "-webkit-fill-available",
-              height: height,
+              width: "100%",
+              height: "60vh",
             }}
           />
-        ))}
-      </Carousel>
-    );
-  }
-}
+        </Paper>
+      ))}
+    </Carousel>
+  );
+};
 
 export default CustomCarousel;

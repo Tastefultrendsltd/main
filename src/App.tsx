@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
-import ScrollToTop from "./Utils/scrollToTop";
+import { Route, Routes } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
+import ScrollToTop from "./Utils/scrollToTop";
 
 const App: React.FC = () => {
   const Home = lazy(() => import("./Components/Home/Home"));

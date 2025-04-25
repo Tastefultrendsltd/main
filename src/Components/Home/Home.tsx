@@ -1,49 +1,54 @@
-import React, { Component, lazy, Suspense } from "react";
-import { Typography, Box, Stack, Button } from "@mui/material";
-import "./Home.css";
-import withRouter, { WithRouterProps } from "~/src/Utils/withRouter/withRouter";
+import { Box } from "@mui/material";
+import React from "react";
+import {
+  show1,
+  show10,
+  show2,
+  show3,
+  show4,
+  show5,
+  show6,
+  show7,
+  show8,
+  show9,
+} from "~/src/Utils/ASSETS";
 import withBreakpoint, {
   BreakpointProps,
 } from "~/src/Utils/withBreakpoint/withBreakpoint";
-import Loader from "../Loader/Loader";
+import Contact from "../Contact/Contact";
+import CustomCarousel from "../CustomCarousel/CustomCarousel";
+import Events from "../Events/Events";
 
-interface IHomeProps extends WithRouterProps, BreakpointProps {}
+const eventPhotos = [
+  show1,
+  show2,
+  show3,
+  show4,
+  show5,
+  show6,
+  show7,
+  show8,
+  show9,
+  show10,
+];
 
-class Home extends Component<IHomeProps> {
-  Events = lazy(() => import("~/src/Components/Events/Events"));
-  Contact = lazy(() => import("~/src/Components/Contact/Contact"));
-  handleClick = (e: React.MouseEvent<HTMLButtonElement>, type: string) => {
-    const { navigate } = this.props;
-    navigate(type);
-  };
-  handleSocial = (type: string) => {
-    if (type === "leetcode") {
-      window.open("https://leetcode.com/skjaved");
-    }
-    if (type === "hacker") {
-      window.open("https://www.hackerrank.com/skjaved633");
-    }
-    if (type === "github") {
-      window.open("https://github.com/shaikhjavedofficial");
-    }
-  };
+class Home extends React.Component<BreakpointProps> {
   render() {
-    const { xs, md, sm } = this.props;
+    const breakpointProps = this.props;
     return (
-      <Box id="home">
-        Home
+      <Box>
+        <Box id="Home">
+          <CustomCarousel items={eventPhotos} />
+        </Box>
         <Box id="Events">
-          <Suspense fallback={<Loader />}>
-            <this.Events />
-          </Suspense>
+          <Events breakpoint={breakpointProps} />
         </Box>
         <Box id="ContactUs">
-          <Suspense fallback={<Loader />}>
-            <this.Contact />
-          </Suspense>
+          <Contact breakpoint={breakpointProps} />
         </Box>
       </Box>
     );
   }
 }
-export default withBreakpoint(withRouter(Home));
+
+export default withBreakpoint(Home);
