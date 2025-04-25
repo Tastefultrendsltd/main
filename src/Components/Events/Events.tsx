@@ -7,22 +7,27 @@ const pastEvents = [
   {
     id: 1,
     title: "Past Event 1",
-    videoUrl: "/assets/videos/VID01.mp4", // Replace with the actual video URL
+    // videoUrl: "/assets/videos/VID01.mp4", // Replace with the actual video URL
+    videoUrl:
+      "https://github.com/Tastefultrendsltd/main/raw/refs/heads/staging/public/assets/videos/VID01.mp4",
   },
   {
     id: 2,
     title: "Past Event 2",
-    videoUrl: "/assets/videos/VID02.mp4", // Replace with the actual video URL
+    videoUrl:
+      "https://github.com/Tastefultrendsltd/main/raw/refs/heads/staging/public/assets/videos/VID02.mp4", // Replace with the actual video URL
   },
   {
     id: 3,
     title: "Past Event 3",
-    videoUrl: "/assets/videos/VID03.mp4", // Replace with the actual video URL
+    videoUrl:
+      "https://github.com/Tastefultrendsltd/main/raw/refs/heads/staging/public/assets/videos/VID03.mp4", // Replace with the actual video URL
   },
   {
     id: 4,
     title: "Past Event 4",
-    videoUrl: "/assets/videos/VID04.mp4", // Replace with the actual video URL
+    videoUrl:
+      "https://github.com/Tastefultrendsltd/main/raw/refs/heads/staging/public/assets/videos/VID04.mp4", // Replace with the actual video URL
   },
 ];
 interface EventsProps {
