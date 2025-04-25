@@ -1,7 +1,8 @@
-a {
+/* a {
     text-decoration: none;
-    color: #ffffff;
-}
+    color: #7D0A0A;
+} */
 a:hover, a.active{
 color: #BF3131;
+cursor: pointer;
 }

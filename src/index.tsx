@@ -1,19 +1,16 @@
+import { SnackbarProvider } from "notistack";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import App from "./App";
-import "./index.css";
-import { SnackbarProvider } from "notistack";
-import SnackbarCloseButton from "./Utils/enqueNotistack/SnackbarCloseButton";
-import "remixicon/fonts/remixicon.css";
 import { HashRouter as Router } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
-import { Footer } from "./Components/Footer/Footer";
+import "remixicon/fonts/remixicon.css";
+import "./index.css";
+import Layout from "./Layout";
+import { store } from "./redux/store";
+import SnackbarCloseButton from "./Utils/enqueNotistack/SnackbarCloseButton";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
-
 root.render(
   <React.StrictMode>
     <SnackbarProvider
@@ -24,9 +21,7 @@ root.render(
     >
       <Provider store={store}>
         <Router>
-          <Navbar />
-          <App />
-          <Footer />
+          <Layout />
         </Router>
       </Provider>
     </SnackbarProvider>
@@ -34,7 +29,7 @@ root.render(
 );
 if (module.hot) {
   module.hot.accept("./App", () => {
-    const NextApp = require("./App").default;
+    const NextApp = require("./Layout/index").default;
     root.render(
       <React.StrictMode>
         <SnackbarProvider
@@ -44,14 +39,8 @@ if (module.hot) {
           )}
         >
           <Provider store={store}>
-            <Router
-              future={{
-                v7_startTransition: true,
-              }}
-            >
-              <Navbar />
+            <Router>
               <NextApp />
-              <Footer />
             </Router>
           </Provider>
         </SnackbarProvider>

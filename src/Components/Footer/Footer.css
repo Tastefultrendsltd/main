@@ -1,0 +1,30 @@
+/* filepath: my-spa-project/src/Components/Footer/Footer.css */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #7D0A0A; /* Red background */
+    color: white;
+}
+
+.footer .map {
+    flex: 1;
+    height: 200px; /* Adjust height as needed */
+    background-image: url('/path/to/juhu-beach-map.jpg'); /* Placeholder for map image */
+    background-size: cover;
+    background-position: center;
+}
+
+.footer .info {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer .info h4 {
+    margin: 0;
+}
+
+.footer .info p {
+    margin: 5px 0;
+}
