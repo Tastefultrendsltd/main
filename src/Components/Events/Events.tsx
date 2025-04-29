@@ -102,7 +102,7 @@ const Events: React.FC<EventsProps> = (props) => {
             <Box display="flex" flexDirection="column" gap="2rem">
               <Button
                 variant="contained"
-                onClick={handleLiveEventOpen}
+                onClick={() => handleLiveEventOpen("youtube")}
                 sx={{
                   padding: "0rem",
                   width: isMobile ? "20%" : "70%",
@@ -112,7 +112,7 @@ const Events: React.FC<EventsProps> = (props) => {
               </Button>
               <Button
                 variant="contained"
-                onClick={handleLiveEventOpen}
+                onClick={() => handleLiveEventOpen("instagram")}
                 sx={{
                   width: isMobile ? "20%" : "70%",
                   padding: "0rem",
