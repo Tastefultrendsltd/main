@@ -47,6 +47,8 @@ class Navbar extends Component<INavbarProps, INavbarState> {
     const { theme } = this.props;
     return (
       <Stack
+        component="header"
+        aria-label="header"
         flexDirection="row"
         justifyContent="space-between"
         height="3rem"

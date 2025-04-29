@@ -6,6 +6,8 @@ const Footer = (props: any) => {
   const isMobile = xs || sm;
   return (
     <Box
+      component="footer"
+      aria-label="Footer"
       display="flex"
       flexDirection="column"
       alignItems="center"
