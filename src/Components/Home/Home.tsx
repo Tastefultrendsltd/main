@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { Suspense } from "react";
 import {
   show1,
   show10,
@@ -18,6 +18,7 @@ import withBreakpoint, {
 import Contact from "../Contact/Contact";
 import CustomCarousel from "../CustomCarousel/CustomCarousel";
 import Events from "../Events/Events";
+import Loader from "../Loader/Loader";
 
 const eventPhotos = [
   show1,
@@ -38,10 +39,14 @@ class Home extends React.Component<BreakpointProps> {
     return (
       <Box>
         <Box id="Home">
-          <CustomCarousel items={eventPhotos} />
+          <Suspense fallback={<Loader />}>
+            <CustomCarousel items={eventPhotos} />
+          </Suspense>
         </Box>
         <Box id="Events">
-          <Events breakpoint={breakpointProps} />
+          <Suspense fallback={<Loader />}>
+            <Events breakpoint={breakpointProps} />
+          </Suspense>
         </Box>
         <Box id="ContactUs">
           <Contact breakpoint={breakpointProps} />

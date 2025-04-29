@@ -27,53 +27,53 @@
 //   "assets/ach3.jpg",
 //   "assets/ach4.jpg"
 // ],
-import show01 from "../../public/assets/01.jpg";
-import show02 from "../../public/assets/02.jpg";
-import show03 from "../../public/assets/03.jpg";
-import show04 from "../../public/assets/04.jpg";
-import show05 from "../../public/assets/05.jpg";
-import show06 from "../../public/assets/06.jpg";
-import show07 from "../../public/assets/07.jpg";
-import show08 from "../../public/assets/08.jpg";
-import show09 from "../../public/assets/09.jpg";
-import show010 from "../../public/assets/10.jpg";
 export const show1 = {
-  src: show01,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/01.jpg?raw=true",
   alt: "show1",
 };
 export const show2 = {
-  src: show02,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/02.jpg?raw=true",
   alt: "show2",
 };
 export const show3 = {
-  src: show03,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/03.jpg?raw=true",
   alt: "show3",
 };
 export const show4 = {
-  src: show04,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/04.jpg?raw=true",
   alt: "show4",
 };
 export const show5 = {
-  src: show05,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/05.jpg?raw=true",
   alt: "show5",
 };
 export const show6 = {
-  src: show06,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/06.jpg?raw=true",
   alt: "show6",
 };
 export const show7 = {
-  src: show07,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/07.jpg?raw=true",
   alt: "show7",
 };
 export const show8 = {
-  src: show08,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/08.jpg?raw=true",
   alt: "show8",
 };
 export const show9 = {
-  src: show09,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/09.jpg?raw=true",
   alt: "show9",
 };
 export const show10 = {
-  src: show010,
+  src:
+    "https://github.com/Tastefultrendsltd/main/blob/staging/public/assets/10.jpg?raw=true",
   alt: "show10",
 };
