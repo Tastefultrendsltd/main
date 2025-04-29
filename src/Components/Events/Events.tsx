@@ -51,7 +51,13 @@ const Events: React.FC<EventsProps> = (props) => {
   const isMobile = xs || sm;
 
   return (
-    <Box m="1rem" border="1px solid #7D0A0A" borderRadius="5px">
+    <Box
+      m="1rem"
+      border="1px solid #7D0A0A"
+      borderRadius="5px"
+      component="section"
+      aria-label="section"
+    >
       <Box p="1rem">
         <Typography variant="h4" gutterBottom>
           Events
