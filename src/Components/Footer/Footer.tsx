@@ -37,7 +37,7 @@ const Footer = (props: any) => {
         >
           <Typography variant="h6">Location</Typography>
           <iframe
-            src={process.env.ADDRESS}
+            src={process.env.ADDRESS_IFRAME}
             width="100%"
             height="90%"
             style={{ border: 0 }}
