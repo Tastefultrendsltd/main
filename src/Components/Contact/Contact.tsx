@@ -139,55 +139,63 @@ const Contact = (props: any) => {
         <Typography variant="h4" gutterBottom>
           Contact Details
         </Typography>
-        <Typography variant="body1" fontSize={"1.2rem"}>
-          Email Us:{" "}
-          <a
-            href="mailto:tastefultrendsltd@gmail.com"
-            style={{ color: "#7D0A0A", textDecoration: "none" }}
-          >
-            tastefultrendsltd@gmail.com
-          </a>
-        </Typography>
-        <Box display="flex" flexDirection="row" gap="1rem" alignItems="center">
-          <Box>
-            <Typography fontSize={"1.2rem"} variant="body1">
-              Proprietor: YASEEN KHAN
-            </Typography>
-            <Typography fontSize={"1.2rem"} variant="body1">
-              Phone: {}
-              <a
-                href="tel:9949429447"
-                style={{ color: "#7D0A0A", textDecoration: "none" }}
-              >
-                9949429447
-              </a>
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              height: "50%",
-              width: "0.1rem",
-              backgroundColor: "#7D0A0A",
-            }}
-          />
-          <Box>
-            <Typography fontSize={"1.2rem"} variant="body1">
-              Master CHEF: MOHD ASIF
-            </Typography>
-            <Typography fontSize={"1.2rem"} variant="body1">
-              Phone:{" "}
-              <a
-                href="tel:9390088026"
-                style={{ color: "#7D0A0A", textDecoration: "none" }}
-              >
-                9390088026
-              </a>
-            </Typography>
-          </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          gap="1rem"
+          alignItems="center"
+          alignContent="center"
+        >
+          <Typography fontSize={"1.2rem"} variant="subtitle2">
+            Proprietor:
+          </Typography>
+          <Typography fontSize={"1.8rem"} variant="body1" color="#7D0A0A">
+            Yaseen Khan
+          </Typography>
+          <Typography fontSize={"1.2rem"} variant="subtitle2">
+            Master Chef:
+          </Typography>
+          <Typography fontSize={"1.8rem"} variant="body1" color="#7D0A0A">
+            Mohd Asif
+          </Typography>
         </Box>
-        <Typography fontSize={"1.2rem"} variant="body1">
-          Address: 22/2/389 NOOR KHAN BAZAR DABEERPURA HYDERABAD
-        </Typography>
+        <Box
+          gap="1rem"
+          display="flex"
+          flexDirection="column"
+          alignContent="center"
+          marginTop="1rem"
+        >
+          <Typography variant="body1" fontSize={"1.2rem"}>
+            Email Us:{" "}
+            <a
+              href="mailto:tastefultrendsltd@gmail.com"
+              style={{ color: "#7D0A0A", textDecoration: "none" }}
+            >
+              tastefultrendsltd@gmail.com
+            </a>
+          </Typography>
+          <Typography fontSize={"1.2rem"} variant="body1">
+            Call Us:{" "}
+            <a
+              href="tel:9390088026"
+              style={{ color: "#7D0A0A", textDecoration: "none" }}
+            >
+              9390088026
+            </a>
+          </Typography>
+          <Typography fontSize={"1.2rem"} variant="body1">
+            Address:{" "}
+            <a
+              href={process.env.ADDRESS_LINK}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "#7D0A0A", textDecoration: "none" }}
+            >
+              22/2/389 NOOR KHAN BAZAR DABEERPURA HYDERABAD
+            </a>
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

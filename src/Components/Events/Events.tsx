@@ -39,8 +39,12 @@ const Events: React.FC<EventsProps> = (props) => {
   //   console.log(`Opening gallery for event ID: ${eventId}`);
   // };
 
-  const handleLiveEventOpen = () => {
-    window.open(process.env.LIVE_EVENT_URL, "_blank");
+  const handleLiveEventOpen = (type: string) => {
+    if (type === "youtube") {
+      window.open(process.env.LIVE_URL_YOUTUBE, "_blank");
+    } else {
+      window.open(process.env.LIVE_URL_INSTA, "_blank");
+    }
   };
   const { breakpoint } = props;
   const { xs, sm } = breakpoint;
@@ -58,7 +62,7 @@ const Events: React.FC<EventsProps> = (props) => {
           flexDirection={isMobile ? "column" : "row"}
           gap="1rem"
         >
-          <Box width="75%">
+          <Box width={isMobile ? "100%" : "75%"}>
             <Typography variant="h5" gutterBottom>
               Past Events
             </Typography>
@@ -72,9 +76,15 @@ const Events: React.FC<EventsProps> = (props) => {
                   <video
                     src={event.videoUrl}
                     controls
-                    style={{ width: "100%", borderRadius: "8px" }}
+                    autoPlay
+                    loop
+                    muted
+                    style={{
+                      width: isMobile ? "40vw" : "100%",
+                      borderRadius: "8px",
+                      height: isMobile ? "40vw" : "100%",
+                    }}
                   />
-                  <Typography variant="h6">{event.title}</Typography>
                   {/* <Button
                   variant="contained"
                   onClick={() => handleGalleryOpen(event.id)}
@@ -85,13 +95,37 @@ const Events: React.FC<EventsProps> = (props) => {
               ))}
             </Box>
           </Box>
-          <Box width="15%">
+          <Box width={isMobile ? "100%" : "15%"}>
             <Typography variant="h5" gutterBottom>
               Live Event
             </Typography>
-            <Button variant="contained" onClick={handleLiveEventOpen}>
-              Watch Live
-            </Button>
+            <Box display="flex" flexDirection="column" gap="2rem">
+              <Button
+                variant="contained"
+                onClick={handleLiveEventOpen}
+                sx={{
+                  padding: "0rem",
+                  width: isMobile ? "20%" : "70%",
+                }}
+              >
+                <i className="ri-youtube-fill" style={{ fontSize: "1.5rem" }} />
+              </Button>
+              <Button
+                variant="contained"
+                onClick={handleLiveEventOpen}
+                sx={{
+                  width: isMobile ? "20%" : "70%",
+                  padding: "0rem",
+                }}
+              >
+                <i
+                  className="ri-instagram-fill"
+                  style={{
+                    fontSize: "1.5rem",
+                  }}
+                />
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Box>
